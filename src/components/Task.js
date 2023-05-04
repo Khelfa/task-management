@@ -1,24 +1,32 @@
+// Importing the task.scss file for styling and the useState hook from React
 import "../styles/task.scss";
 import { useState } from "react";
 
+// Defining the Task component as a default export
 export default function Task(props) {
+  // Destructuring the props object to get the required properties
   const { addTask, deleteTask, moveTask, task } = props;
 
+  // Defining state variables to track the urgency level, collapse status, and form action
   const [urgencyLevel, setUrgencyLevel] = useState(task.urgency);
   const [collapsed, setCollapsed] = useState(task.isCollapsed);
   const [formAction, setFormAction] = useState("");
 
+  // A function that sets the urgency level based on the clicked radio button
   function setUrgency(event) {
     setUrgencyLevel(event.target.attributes.urgency.value);
   }
 
+  // A function that handles form submission (save or delete)
   function handleSubmit(event) {
     event.preventDefault();
 
     if (formAction === "save") {
+      // If the form is collapsed, expand it
       if (collapsed) {
         setCollapsed(false);
       } else {
+        // Otherwise, create a new task object with the updated values and add it to the tasks array
         let newTask = {
           id: task.id,
           title: event.target.elements.title.value,
@@ -34,10 +42,12 @@ export default function Task(props) {
     }
 
     if (formAction === "delete") {
+      // If the form action is delete, remove the task from the tasks array
       deleteTask(task.id);
     }
   }
 
+  // A function that handles moving a task to the left (backlog or in progress)
   function handleMoveLeft() {
     let newStatus = "";
 
@@ -52,6 +62,7 @@ export default function Task(props) {
     }
   }
 
+  // A function that handles moving a task to the right (in progress or done)
   function handleMoveRight() {
     let newStatus = "";
 
@@ -66,12 +77,16 @@ export default function Task(props) {
     }
   }
 
+  // The Task component's render method
   return (
     <div className={`task ${collapsed ? "collapsedTask" : ""}`}>
+      {/* A button that moves the task to the left (backlog or in progress) */}
       <button onClick={handleMoveLeft} className="button moveTask">
         &#171;
       </button>
+      {/* A form that allows editing the task */}
       <form onSubmit={handleSubmit} className={collapsed ? "collapsed" : ""}>
+        {/* An input for the task title */}
         <input
           type="text"
           className="title input"
@@ -80,6 +95,7 @@ export default function Task(props) {
           disabled={collapsed}
           defaultValue={task.title}
         />
+        {/* A textarea for the task description */}
         <textarea
           rows="2"
           className="description input"
@@ -87,6 +103,7 @@ export default function Task(props) {
           placeholder="Enter Description"
           defaultValue={task.description}
         />
+        {/* Radio buttons for the task urgency level */}
         <div className="urgencyLabels">
           <label className={`low ${urgencyLevel === "low" ? "selected" : ""}`}>
             <input
@@ -120,6 +137,7 @@ export default function Task(props) {
             high
           </label>
         </div>
+        {/* A button that saves or edits the task */}
         <button
           onClick={() => {
             setFormAction("save");
@@ -128,6 +146,7 @@ export default function Task(props) {
         >
           {collapsed ? "Edit" : "Save"}
         </button>
+        {/* A button that deletes the task */}
         {collapsed && (
           <button
             onClick={() => {
@@ -139,6 +158,7 @@ export default function Task(props) {
           </button>
         )}
       </form>
+      {/* A button that moves the task to the right (in progress or done) */}
       <button onClick={handleMoveRight} className="button moveTask">
         &#187;
       </button>
