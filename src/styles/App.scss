@@ -1,11 +1,14 @@
+// Importing the Kanit font from Google Fonts and the properties.scss file
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "properties.scss";
 
+// Setting global styles
 * {
   margin: 0;
   padding: 0;
 }
 
+// Setting styles for the body element
 body {
   font-family: "Kanit", sans-serif;
   background-color: $blue;
@@ -16,11 +19,13 @@ body {
   text-align: center;
 }
 
+// Setting styles for the h1 element
 h1 {
   margin: 2rem 0;
   font-weight: 400;
 }
 
+// Setting styles for the main element
 main {
   display: flex;
   flex-direction: column;
@@ -29,12 +34,14 @@ main {
   width: fit-content;
 }
 
+// Setting styles for the section element
 section {
   display: flex;
   width: 70rem;
   margin-bottom: 2rem;
 }
 
+// Setting styles for buttons
 .button {
   border: 1px solid $gold;
   text-transform: uppercase;
@@ -49,12 +56,14 @@ section {
   font-size: 1rem;
   margin-right: 0.25rem;
 
+  // Styles for button hover state
   &:hover {
     background-color: $highlight;
     border-color: $highlight;
     cursor: pointer;
   }
 
+  // Styles for button focus state
   &:focus {
     outline: none;
     border-color: $highlight;
@@ -62,6 +71,7 @@ section {
     color: $white;
   }
 
+  // Styles for the "add task" button
   &.addTask {
     font-size: 3rem;
     padding: 0 0 0.4rem 0;
@@ -72,6 +82,7 @@ section {
     margin-top: 2rem;
   }
 
+  // Styles for the "move task" buttons
   &.moveTask {
     font-size: 1.5rem;
     padding: 0.5rem 0.5rem;
@@ -79,10 +90,12 @@ section {
     line-height: 1rem;
   }
 
+  // Styles for the "delete task" button
   &.delete {
     background-color: $pink;
     border-color: $pink;
 
+    // Styles for the "delete task" button hover state
     &:hover {
       background-color: $red;
       border-color: $red;
@@ -90,6 +103,7 @@ section {
   }
 }
 
+// Media query for smaller screens
 @media only screen and (max-width: 75rem) {
   section {
     width: 100%;
