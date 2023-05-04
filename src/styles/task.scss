@@ -1,5 +1,7 @@
+// Importing the properties.scss file
 @import "properties.scss";
 
+// Setting styles for the task element
 .task {
   padding: 1rem;
   margin-bottom: 0.5rem;
@@ -8,7 +10,9 @@
   border: 1px solid $white;
   border-radius: 0.25rem;
 
+  // Styles for the collapsed task
   &.collapsedTask {
+    // Styles for the move task button inside the collapsed task
     .moveTask {
       margin-bottom: 0.5rem;
       font-size: 1.5rem;
@@ -16,6 +20,7 @@
     }
   }
 
+  // Styles for the task form
   form {
     display: flex;
     flex-direction: column;
@@ -23,6 +28,7 @@
     align-items: center;
     margin: 0 0.25rem;
 
+    // Styles for the task input field
     .input {
       background-color: transparent;
       border: 1px solid transparent;
@@ -49,6 +55,7 @@
       }
     }
 
+    // Styles for the task title field
     .title {
       margin-bottom: 0.5rem;
       padding: 0.5rem 0;
@@ -60,6 +67,7 @@
       }
     }
 
+    // Styles for the task description field
     .description {
       margin-bottom: 0.5rem;
       padding: 0.5rem;
@@ -71,6 +79,7 @@
       }
     }
 
+    // Styles for the task urgency labels
     .urgencyLabels {
       margin-bottom: 1.5rem;
       display: flex;
@@ -83,6 +92,7 @@
         text-transform: uppercase;
         border-radius: 0.25rem;
 
+        // Styles for the urgency label icon
         .icon {
           font-size: 1.25rem;
           margin-right: 0.25rem;
@@ -101,6 +111,7 @@
           display: none;
         }
 
+        // Styles for the low urgency label
         &.low {
           background-color: $green;
 
@@ -111,6 +122,7 @@
           }
         }
 
+        // Styles for the medium urgency label
         &.medium {
           background-color: $yellow;
 
@@ -121,6 +133,7 @@
           }
         }
 
+        // Styles for the high urgency label
         &.high {
           background-color: $pink;
 
@@ -131,16 +144,19 @@
           }
         }
 
+        // Styles for the selected urgency label
         &.selected {
           font-weight: 700;
         }
       }
     }
 
+    // Styles for the collapsed task form
     &.collapsed {
       flex-direction: row;
       align-content: center;
 
+      // Styles for the task title inside the collapsed task
       .title {
         margin: 0;
 
@@ -150,21 +166,25 @@
         }
       }
 
+      // Styles for the urgency labels inside the collapsed task
       .urgencyLabels {
         margin-bottom: 0;
         margin-right: 1rem;
       }
 
+      // Styles for the description and label fields inside the collapsed task
       .description,
       label {
         display: none;
       }
 
+      // Styles for the selected urgency label inside the collapsed task
       label.selected {
         display: inline-block;
         font-weight: 500;
       }
 
+      // Styles for the move task button inside the collapsed task
       .button {
         padding: 0.025rem 0.5rem;
 
@@ -173,6 +193,7 @@
         }
       }
 
+      // Styles for the buttons inside the collapsed task on hover
       &:hover .button {
         display: inline-block;
       }
