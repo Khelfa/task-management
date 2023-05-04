@@ -1,15 +1,19 @@
+// Importing the properties.scss file
 @import "properties.scss";
 
+// Setting styles for the status line element
 .statusLine {
   width: 100%;
   margin: 0 0.5rem;
 
+  // Styles for the h3 element inside the status line
   h3 {
     font-weight: 500;
     margin: 1rem 0;
   }
 }
 
+// Media query for smaller screens
 @media only screen and (max-width: 75rem) {
   .statusLine {
     width: initial;
